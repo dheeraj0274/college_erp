@@ -6,5 +6,4 @@ build/
 *.log
 .vscode/
 .idea/
-instruction.txt
-.gitignore
+instructions.txt
