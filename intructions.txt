@@ -1,0 +1,672 @@
+# College ERP — Antigravity Master Instructions
+
+## Project Overview
+
+Build a production-grade enterprise-level College ERP platform for a B.Tech college using:
+
+* React + JSX + Vite
+* Tailwind CSS
+* Node.js + Express
+* MongoDB
+* Resend Email Integration
+
+This ERP must look and behave like a real enterprise SaaS platform used by universities and institutions.
+
+The UI must feel modern, clean, structured, scalable, and premium.
+
+Avoid generic AI-generated UI patterns.
+
+---
+
+# Core UI Philosophy
+
+The design language must be inspired by:
+
+* Linear
+* Stripe Dashboard
+* Notion
+* Freshworks
+* Modern enterprise SaaS products
+
+The UI should feel:
+
+* Professional
+* Structured
+* Minimal
+* Premium
+* Fast
+* Highly readable
+* Consistent
+
+Avoid:
+
+* Cartoonish UI
+* Random gradients
+* Excessive glow effects
+* Neon colors
+* Oversized rounded corners
+* Over-animated components
+* Fancy unnecessary effects
+* Generic AI layouts
+
+---
+
+# Theme System
+
+The application MUST support:
+
+* Light Mode
+* Dark Mode
+* System Theme
+
+Requirements:
+
+* Persist selected theme in localStorage
+* Smooth theme transition
+* Use Tailwind dark classes
+* Create centralized theme provider
+* Theme toggle in navbar
+
+Recommended implementation:
+
+* Context-based theme management
+* Theme stored globally
+* System preference detection
+
+---
+
+# Color System
+
+Use ONLY this professional enterprise palette.
+
+## Primary Palette
+
+| Usage            | Color       |
+| ---------------- | ----------- |
+| Primary          | Indigo 600  |
+| Secondary        | Slate 700   |
+| Accent           | Cyan 500    |
+| Success          | Emerald 500 |
+| Warning          | Amber 500   |
+| Danger           | Rose 500    |
+| Light Background | Zinc 50     |
+| Dark Background  | Slate 950   |
+| Light Border     | Zinc 200    |
+| Dark Border      | Slate 800   |
+
+---
+
+# Typography Rules
+
+Use:
+
+* Inter for main typography
+* Geist Mono for statistics and dashboard numbers
+
+Typography hierarchy:
+
+* Page Title → text-3xl font-semibold
+* Section Title → text-xl font-semibold
+* Card Title → text-base font-medium
+* Body → text-sm
+* Table Data → text-sm
+* Small Metadata → text-xs text-muted
+
+Maintain clean spacing and readability.
+
+---
+
+# Layout Rules
+
+## Sidebar
+
+Requirements:
+
+* Fixed sidebar on desktop
+* Collapsible sidebar
+* Mobile drawer sidebar
+* Active route highlighting
+* Icon + label structure
+* Grouped navigation sections
+* Professional spacing
+
+Sidebar should include:
+
+* Dashboard
+* Students
+* Faculty
+* Attendance
+* Subjects
+* Timetable
+* Results
+* Assignments
+* Fees
+* Notifications
+* Analytics
+* Settings
+
+---
+
+## Navbar
+
+Navbar must contain:
+
+* Search input
+* Notification dropdown
+* Theme toggle
+* User profile dropdown
+* Role indicator
+
+Behavior:
+
+* Sticky top navbar
+* Backdrop blur minimal
+* Thin bottom border
+
+---
+
+## Cards
+
+Card Design Rules:
+
+* Subtle border
+* Soft shadow
+* Clean spacing
+* Rounded-xl only
+* No glassmorphism
+* No strong gradients
+
+Card types:
+
+* Statistics cards
+* Analytics cards
+* Activity cards
+* Notification cards
+* Data summary cards
+
+---
+
+## Tables
+
+Enterprise-grade table system:
+
+Features:
+
+* Sticky header
+* Pagination
+* Sorting
+* Search
+* Filters
+* Row hover states
+* Responsive overflow
+* Empty states
+* Loading skeletons
+
+Use reusable table component architecture.
+
+---
+
+# Animation Rules
+
+Use subtle motion only.
+
+Animation stack:
+
+* Framer Motion
+
+Rules:
+
+* 150ms–250ms transitions
+* Smooth sidebar collapse
+* Smooth modal animation
+* Fade + slight translate animations
+
+Avoid:
+
+* Bounce effects
+* Excessive scaling
+* Heavy transitions
+* Fancy loaders everywhere
+
+---
+
+# Frontend Architecture
+
+## Folder Structure
+
+```txt
+client/
+│
+├── src/
+│   ├── api/
+│   ├── assets/
+│   ├── components/
+│   │   ├── common/
+│   │   ├── dashboard/
+│   │   ├── forms/
+│   │   ├── charts/
+│   │   ├── tables/
+│   │   ├── modals/
+│   │   └── ui/
+│   │
+│   ├── layouts/
+│   ├── pages/
+│   │   ├── auth/
+│   │   ├── student/
+│   │   ├── faculty/
+│   │   ├── hod/
+│   │   ├── admin/
+│   │   ├── accountant/
+│   │   └── superadmin/
+│   │
+│   ├── routes/
+│   ├── hooks/
+│   ├── services/
+│   ├── context/
+│   ├── store/
+│   ├── themes/
+│   ├── utils/
+│   ├── constants/
+│   └── lib/
+│
+└── package.json
+```
+
+---
+
+# Backend Architecture
+
+## Backend Folder Structure
+
+```txt
+server/
+│
+├── config/
+├── controllers/
+├── middleware/
+├── models/
+├── routes/
+├── services/
+├── validators/
+├── utils/
+├── mails/
+├── uploads/
+├── cron/
+└── app.js
+```
+
+---
+
+# Backend Standards
+
+Architecture:
+
+* REST API
+* MVC pattern
+* JWT authentication
+* Refresh token support
+* RBAC authorization
+* Centralized error handling
+* Validation middleware
+* Environment-based config
+* Async handler wrappers
+
+Security:
+
+* Rate limiting
+* Helmet
+* CORS config
+* Password hashing
+* Secure cookies
+* Input validation
+
+---
+
+# Database Design
+
+Use MongoDB with separated schemas.
+
+Collections:
+
+* users
+* students
+* faculty
+* departments
+* attendance
+* subjects
+* semesters
+* marks
+* assignments
+* fees
+* notifications
+* timetables
+* leaveRequests
+* announcements
+* activityLogs
+
+Use:
+
+* CreatedAt
+* UpdatedAt
+* Proper indexing
+* Schema validation
+* Reusable schema utilities
+
+---
+
+# Authentication System
+
+Authentication must include:
+
+* Login
+* Logout
+* Forgot password
+* Reset password
+* Email verification
+* OTP verification
+* JWT auth
+* Refresh token auth
+* Protected routes
+* Role-based authorization
+
+Roles:
+
+* Student
+* Faculty
+* HOD
+* Admin
+* Accountant
+* Super Admin
+
+---
+
+# Resend Email Integration
+
+Use Resend for:
+
+* OTP verification
+* Password reset
+* Attendance alerts
+* Fee reminders
+* Result notifications
+* Notice announcements
+
+Requirements:
+
+* Email templates
+* Branded HTML emails
+* Reusable email service
+* Queue-ready architecture
+
+---
+
+# ERP Modules
+
+## Student Module
+
+Features:
+
+* Student profile
+* Attendance view
+* Subject management
+* Marks and results
+* Timetable
+* Assignments
+* Fee records
+* Notifications
+* Leave requests
+* Academic progress
+
+---
+
+## Faculty Module
+
+Features:
+
+* Attendance marking
+* Assignment uploads
+* Marks management
+* Student analytics
+* Timetable management
+* Leave management
+* Notice publishing
+
+---
+
+## HOD Module
+
+Features:
+
+* Department analytics
+* Faculty oversight
+* Subject allocation
+* Reports
+* Student performance monitoring
+
+---
+
+## Admin Module
+
+Features:
+
+* User management
+* Department management
+* Semester management
+* Subject management
+* ERP configuration
+* Academic calendar
+* Role permissions
+* System controls
+
+---
+
+## Finance Module
+
+Features:
+
+* Fee management
+* Payment tracking
+* Receipt generation
+* Pending dues
+* Scholarship records
+* Financial analytics
+
+---
+
+## Communication Module
+
+Features:
+
+* Notifications
+* Announcements
+* Department notices
+* Email alerts
+* Emergency alerts
+
+---
+
+## Analytics Dashboard
+
+Dashboard should include:
+
+* Attendance analytics
+* Student performance analytics
+* Department statistics
+* Fee collection analytics
+* Assignment tracking
+* Recent activities
+
+Charts should be:
+
+* Minimal
+* Clean
+* Readable
+* Responsive
+
+---
+
+# Responsive Design Rules
+
+Requirements:
+
+* Mobile-first responsive architecture
+* Tablet optimization
+* Desktop optimization
+* Collapsible sidebar on smaller screens
+* Responsive tables
+* Responsive forms
+
+Avoid:
+
+* Horizontal overflow
+* Oversized cards
+* Poor mobile spacing
+
+---
+
+# Form System Standards
+
+Forms must include:
+
+* Validation
+* Error states
+* Success states
+* Loading states
+* Reusable inputs
+* Selects
+* Date pickers
+* File uploads
+
+Form design:
+
+* Clean labels
+* Consistent spacing
+* Inline validation messages
+* Accessible controls
+
+---
+
+# UI Component Rules
+
+Create reusable components for:
+
+* Buttons
+* Inputs
+* Tables
+* Modals
+* Dropdowns
+* Tooltips
+* Cards
+* Tabs
+* Pagination
+* Skeleton loaders
+* Toast notifications
+
+Naming conventions:
+
+* PascalCase for components
+* camelCase for hooks/utilities
+* Centralized exports
+
+---
+
+# Dashboard Design Standards
+
+Dashboard should contain:
+
+* Statistics overview
+* Recent activity panel
+* Notifications panel
+* Charts section
+* Quick actions section
+* Recent attendance
+* Performance metrics
+
+Design goals:
+
+* High information density
+* Clean readability
+* Proper spacing
+* Enterprise appearance
+
+---
+
+# Performance Optimization
+
+Requirements:
+
+* Lazy loading routes
+* Code splitting
+* Memoized components where needed
+* Optimized API calls
+* Skeleton loading states
+* Efficient rendering
+
+---
+
+# Code Quality Standards
+
+Frontend:
+
+* Reusable architecture
+* Modular structure
+* Avoid repeated code
+* Clean hooks
+* Proper naming
+
+Backend:
+
+* Thin controllers
+* Service layer separation
+* Validation layer
+* Proper middleware structure
+
+General:
+
+* Clean code
+* Scalable architecture
+* Readable structure
+* Production-ready patterns
+
+---
+
+# API Standards
+
+REST API standards:
+
+* /api/v1/
+* Proper HTTP status codes
+* Structured JSON responses
+* Global error handling
+* Pagination support
+* Filtering support
+* Sorting support
+
+Response format:
+
+```json
+{
+  "success": true,
+  "message": "Operation successful",
+  "data": {}
+}
+```
+
+---
+
+# Final Product Goal
+
+The final ERP must feel like:
+
+* A real enterprise SaaS platform
+* A production-grade university ERP
+* A scalable commercial application
+
+The platform should NOT feel like:
+
+* A student mini project
+* A generic admin template
+* A colorful AI-generated dashboard
+* A beginner React project
+
+Maintain professional enterprise-level standards throughout the entire project.

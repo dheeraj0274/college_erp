@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-surface-200;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-surface-50 text-surface-800 font-sans text-sm antialiased;
+  }
+
+  html.dark body {
+    @apply bg-dark-950 text-surface-100;
+  }
+
+  html.dark * {
+    @apply border-dark-700;
+  }
+
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-300 rounded-full;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb {
+    @apply bg-dark-700;
+  }
+
+  ::selection {
+    background: rgba(79, 70, 229, 0.15);
+  }
+
+  html.dark ::selection {
+    background: rgba(129, 140, 248, 0.2);
+  }
+}
+
+@layer utilities {
+  .text-muted {
+    @apply text-surface-500;
+  }
+
+  html.dark .text-muted {
+    @apply text-surface-400;
+  }
+}
